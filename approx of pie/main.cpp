@@ -1,19 +1,16 @@
 #include <iostream>
 #include <math.h>
-using namespace std;
 
-double convert_to_deg(double x){
-  return x*57.2958;
-}
+using namespace std;
 
 double partB(int sides){
   double Pi_approx = 0;
   //sides = sides^2;
 
-  double CosInDeg = convert_to_deg(cos(180/sides));
-  double SinInDeg = convert_to_deg(sin(180/sides));
+  double CosInDeg = cos(180/100)*57.2958;
+  double SinInDeg = sin(180/100)*57.2958;
 
-  Pi_approx = CosInDeg*SinInDeg*sides;
+  Pi_approx = CosInDeg*SinInDeg*100;
 
 //cout<< sides;
 //cout<< CosInDeg;
@@ -25,4 +22,5 @@ double partB(int sides){
 int main()
 {
   cout << partB(1000);
+  return 0;
 }
