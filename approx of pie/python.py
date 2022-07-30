@@ -20,16 +20,20 @@ def part_C():
     print(ans)
 
 def extention(to_how_many_decial_places):
-    D = int(to_how_many_decial_places)
+    D = int(to_how_many_decial_places) #making the input a number
     Pi_approx = 0
     n = 4
 
-    while str(Pi_approx)[0:D+2] != str(math.pi)[0:D+2]:
+    while str(Pi_approx)[0:D+2] != str(math.pi)[0:D+2]: 
+        #while the number of deciaml places of calulating pi does not equal to the- 
+        #number of decmial places of the actual vaule of pi
         Pi_approx = math.cos(math.radians(180/(n)))*math.sin(math.radians(180/(n)))*n
         n += 1
+        #does the equation and adds one to n
+        #the upper and lower bound is not used beacuse it would take longer than it is
 
-    ans = str(Pi_approx)
-    answer = ans[0:D+2]
+    ans = str(Pi_approx) #turns the answer into a string - eaiser to return 
+    answer = ans[0:D+2] #returns the value of pi to D number of decimal places
     return answer
 
 print(extention(10))
