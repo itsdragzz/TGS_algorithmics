@@ -1,3 +1,5 @@
+#https://orac2.info/problem/aic03culture/
+
 
 # Read the input
 inputFile = open("D:\School\orac\simple addition\sitin.txt", "r")
