@@ -17,46 +17,45 @@ def create_groups(file):
     def name_list(data):
         name_list = []
         name_loop = 0
-
         for i in range(len(data)):
             name_list.append(data[i][0])
-
         #print(len(data))
-        
         #print(name_list[0])
-
         return name_list
 
 
     def remove_data(data):
         for i in range(len(data)):
-            del data[i][0]
-
-        
+            del data[i][0]        
         #total = [int(x) for x in data]
-
         return data
 
     
-
-
     name_list_ = name_list(data)
     remove_data_ = [list( map(int,i) ) for i in remove_data(data)] #converts string to int of the data
 
-
-    
     #corr_arrToarr 
 
     def largestInxValye(input_list):
         max_value = int(max(input_list)) #had error where max valye was only 1 less than max value
         index_value = [index for index in range(len(input_list)) if input_list[index] == max_value]
-
-        
         return index_value 
 
-    print(int(max(data[0])) + 1)
- 
-    print(largestInxValye(remove_data_ [0]))
+    def find_index(pos, name_lists) -> str:
+        res = name_lists[pos]
+        return res
+
+
+    #print(int(max(data[0])) + 1)
+
+
+
+
+    print(largestInxValye(remove_data_[0]))
+
+    #print(remove_data_)
+
+
 
 
 
