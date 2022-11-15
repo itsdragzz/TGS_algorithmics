@@ -1,103 +1,99 @@
 def create_groups(file):
+
+
+    import csv
+    import math
     import numpy as np
-    #open csv file
+    import random
 
-    def Open(file): #open csv file
-        import csv
-        with open(file, 'r') as f:
-            reader = csv.reader(f)
-            #create list of lists
-            data = list(reader)
-            #remove header
-            data.pop(0)
-        return data 
+    with open(file, 'r') as f:
+        reader = csv.reader(f)
+        #create list of lists
+        data = list(reader)
+        #remove header
+        data.pop(0)
 
-    data = Open(file) #open's the file
+    #function is called data
+    
+    name_list = []
+    for i in range(len(data)):
+        name_list.append(data[i][0])
 
-    def name_list(data):
-        name_list = []
-        name_loop = 0
+    for i in range(len(data)):
+        del data[i][0]        
 
-        for i in range(len(data)):
-            name_list.append(data[i][0])
+    
+    remove_data_ = [list( map(int,i) ) for i in data] #converts string to int of the data
+    #print(remove_data_ )
 
-        #print(len(data))
-        
-        #print(name_list[0])
+    data_of_max = [[]]
 
-        return name_list
+    for i in range(len(remove_data_)):
+        #print(i)
+        inlist = remove_data_[i]
+        max_value = int(max(inlist)) #had error where max valye was only 1 less than max value
+        index_value = [index for index in range(len(inlist)) if inlist[index] == max_value]
+        data_of_max.insert(i, index_value)
 
-
-    def remove_data(data):
-        for i in range(len(data)):
-            del data[i][0]
-
-        
-        #total = [int(x) for x in data]
-
-        return data
+    #print(data_of_max)
 
     
 
+    #data_of_max[0].index(3)
 
-    name_list_ = name_list(data)
-    remove_data_ = [list( map(int,i) ) for i in remove_data(data)] #converts string to int of the data
+    #print(name_list[0])
+    #print(data_of_max)
 
+    index_of_max = [] # 5 per tent 
+    n = 0 #people who ranked the first name
 
-    
-    #corr_arrToarr 
-
-    def largestInxValye(input_list):
-        max_value = int(max(input_list)) #had error where max valye was only 1 less than max value
-        index_value = [index for index in range(len(input_list)) if input_list[index] == max_value]
-
+    for x in data_of_max:
         
-        return index_value 
+        for y in x:
+            #print(x, y)
+            if y == n:
+                while len(index_of_max) <= 5:
+                    #print(x, y)
+                    #rint(index_of_max)
+                    #check, add, remove
+                    #index_of_max.append(name_list[n]) WHAT AM I DOING HERE
+                    list_ = data_of_max.index(x) #finds the index of the list which contains n
+                    index_of_max.append(name_list[list_]) #adds the name to list 
+                    name_list.remove(name_list[n])
+                    print(len(index_of_max))
+                print(name_list)
 
-    print(int(max(data[0])) + 1)
- 
-    print(largestInxValye(remove_data_ [0]))
+                #print(index_of_max)
+                #print(x, y)
+    #print(pos)
+
+
+'''AHASHD
+
+#------------------- from 1d to 2d array -----------------------------
+    random.shuffle(name_list)
+    liston = np.array(name_list)
+    #print(liston )
+    #per_tent = int(len(data)/5)
+    out = np.reshape(liston, (-1, 5))
+    print(out)
+
+'''
 
 
 
+    #name = name_list[i]
+    #print(data_of_max)
+    #print(name_list[0])
 
-    #print(name_list)
+
 
     #max__ = np.amax(data)
     #print(max__)
     #print(data)
 
-'''
-    #find max value of data                     dont know yet how to do thisq
-    def max_value(data):
-        max_value = 0
-        for i in range(len(data)):
-            if max_value < data[i][1]:
-                max_value = data[i][1]
-        return max_value
-'''
-
 
     
-
-
-
-    #print(max_)
     
-
-
-
-
-
-
     
-create_groups('test.csv')
-
-
-
-
-'''
-    Inputs:
-    file: name of the csv
-    Outputs: a list of lists, where each sublist contains the name of the five students which are going to share a tent
-    '''
+create_groups('Challenge/preferences.csv')
