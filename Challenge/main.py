@@ -45,23 +45,54 @@ def create_groups(file):
     #print(data_of_max)
 
     index_of_max = [] # 5 per tent 
+
     n = 0 #people who ranked the first name
 
     for x in data_of_max:
         
         for y in x:
             #print(x, y)
+            print(n)
+            print(index_of_max)
             if y == n:
-                while len(index_of_max) <= 5:
-                    #print(x, y)
-                    #rint(index_of_max)
-                    #check, add, remove
-                    #index_of_max.append(name_list[n]) WHAT AM I DOING HERE
-                    list_ = data_of_max.index(x) #finds the index of the list which contains n
-                    index_of_max.append(name_list[list_]) #adds the name to list 
-                    name_list.remove(name_list[n])
-                    print(len(index_of_max))
-                print(name_list)
+                print(x, y)
+                index_of_max.append(name_list[n])
+                name_list.remove(name_list[n])
+
+                #print(x, y)
+                #rint(index_of_max)
+                #check, add, remove
+                #index_of_max.append(name_list[n]) WHAT AM I DOING HERE
+                list_ = data_of_max.index(x) #finds the index of the list which contains n
+                index_of_max.append(name_list[list_]) #adds the name to list
+
+                #print(name_list[list_])
+                #print(index_of_max)
+                
+
+                name_list.remove(name_list[list_])
+
+                print(index_of_max)
+                print(len(index_of_max))
+
+            if(len(index_of_max) >= 5):
+                break
+
+            print(index_of_max)
+
+
+
+            #print(len(index_of_max))
+
+
+
+    print(index_of_max)
+    print(len(index_of_max))
+
+
+
+    #print(index_of_max)
+                #print(name_list)
 
                 #print(index_of_max)
                 #print(x, y)
