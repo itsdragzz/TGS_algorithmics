@@ -26,7 +26,7 @@ def create_groups(file):
     remove_data_ = [list( map(int,i) ) for i in data] #converts string to int of the data
     #print(remove_data_ )
 
-    data_of_max = [[]]
+    data_of_max = []
 
     for i in range(len(remove_data_)):
         #print(i)
@@ -43,29 +43,71 @@ def create_groups(file):
 
     #print(name_list[0])
     #print(data_of_max)
+    out = []
+    pos = 0
+    #per_tent = int(len(name_list)/5)
 
-    index_of_max = [] # 5 per tent 
     n = 0 #people who ranked the first name
 
-    for x in data_of_max:
-        
-        for y in x:
-            #print(x, y)
-            if y == n:
-                while len(index_of_max) <= 5:
-                    #print(x, y)
-                    #rint(index_of_max)
-                    #check, add, remove
-                    #index_of_max.append(name_list[n]) WHAT AM I DOING HERE
-                    list_ = data_of_max.index(x) #finds the index of the list which contains n
-                    index_of_max.append(name_list[list_]) #adds the name to list 
-                    name_list.remove(name_list[n])
-                    print(len(index_of_max))
-                print(name_list)
 
-                #print(index_of_max)
+    while n < 2:
+        
+        index_of_max = [] # 5 per tent 
+        #print(name_list)
+        #print(len(name_list))
+        #print("")
+        #print(data_of_max)
+
+
+        for x in data_of_max:
+            
+            for y in x:
                 #print(x, y)
-    #print(pos)
+                if y == n:
+
+                    if name_list == []:
+                        n = 3
+                        break
+
+                    if len(name_list) <= 5:
+                        
+                        #print("yes", index_of_max)
+                        index_of_max.append(name_list) 
+
+                        index_of_max = name_list
+                        #print("it is", name_list )
+
+                        name_list = []
+                        n = 3
+                        break
+
+
+                    else:
+                    
+                        while len(index_of_max) <= 3:
+
+                            list_ = data_of_max.index(x) #finds the index of the list which contains n
+                            index_of_max.append(name_list[list_]) #adds the name to list 
+                            name_list.remove(name_list[list_])
+
+                #n = n + 1
+
+        if name_list == []:
+            #print(index_of_max)
+            out.insert(pos, index_of_max)
+            break
+
+        else:
+            index_of_max.append(name_list[n])
+            name_list.remove(name_list[n])
+            out.insert(pos, index_of_max)
+
+        #print(index_of_max)
+    
+    print(len(out))
+    print(out)
+
+    return out
 
 
 '''AHASHD
@@ -96,4 +138,5 @@ def create_groups(file):
     
     
     
+#create_groups('C:\Users\Kelvin\Documents\GitHub\TGS_algorithmics\Challenge\preferences.csv')
 create_groups('Challenge/preferences.csv')
