@@ -13,6 +13,9 @@ def create_groups(file):
         #remove header
         data.pop(0)
 
+
+        
+
     #function is called data
     
     name_list = []
@@ -85,8 +88,9 @@ def create_groups(file):
                     else:
                     
                         while len(index_of_max) <= 3:
-
+                            print(x)
                             list_ = data_of_max.index(x) #finds the index of the list which contains n
+                            print(list_)
                             index_of_max.append(name_list[list_]) #adds the name to list 
                             name_list.remove(name_list[list_])
 
@@ -139,4 +143,5 @@ def create_groups(file):
     
     
 #create_groups('C:\Users\Kelvin\Documents\GitHub\TGS_algorithmics\Challenge\preferences.csv')
+#create_groups('Challenge/p2.csv')
 create_groups('Challenge/preferences.csv')
